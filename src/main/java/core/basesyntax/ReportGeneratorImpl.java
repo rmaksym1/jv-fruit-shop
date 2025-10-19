@@ -4,8 +4,12 @@ import core.interfaces.ReportGenerator;
 import java.util.Map;
 
 public class ReportGeneratorImpl implements ReportGenerator {
-    StorageDao storage = new StorageDao();
-    StringBuilder sb = new StringBuilder();
+    private StorageDao storage = new StorageDao();
+    private StringBuilder sb = new StringBuilder();
+
+    public StorageDao getStorage() {
+        return storage;
+    }
 
     @Override
     public String getReport() {

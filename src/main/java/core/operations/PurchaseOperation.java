@@ -8,6 +8,6 @@ public class PurchaseOperation implements OperationHandler {
 
     @Override
     public void apply(FruitTransaction tx, StorageDao storageDao) {
-        storageDao.substract(tx.getFruit(), tx.getQuantity());
+        storageDao.subtract(tx.getFruit(), tx.getQuantity());
     }
 }

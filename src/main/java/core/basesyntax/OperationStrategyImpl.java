@@ -13,7 +13,6 @@ public class OperationStrategyImpl implements OperationStrategy {
         this.handlers = handlers;
     }
 
-
     @Override
     public OperationHandler get(FruitTransaction.Operation op) {
         if (handlers.get(op) == null) {

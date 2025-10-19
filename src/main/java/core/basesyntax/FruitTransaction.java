@@ -4,6 +4,7 @@ public final class FruitTransaction {
     private final Operation operation;
     private final String fruit;
     private final int quantity;
+
     public enum Operation {
         BALANCE("b"),
         SUPPLY("s"),
