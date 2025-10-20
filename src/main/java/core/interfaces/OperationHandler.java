@@ -4,5 +4,5 @@ import core.basesyntax.FruitTransaction;
 import core.basesyntax.StorageDao;
 
 public interface OperationHandler {
-    public void apply(FruitTransaction tx, StorageDao storageDao);
+    public void apply(FruitTransaction tx);
 }

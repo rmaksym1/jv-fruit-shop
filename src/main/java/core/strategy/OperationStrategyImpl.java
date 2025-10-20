@@ -1,5 +1,6 @@
-package core.basesyntax;
+package core.strategy;
 
+import core.basesyntax.FruitTransaction;
 import core.interfaces.OperationHandler;
 import core.interfaces.OperationStrategy;
 import java.util.Map;

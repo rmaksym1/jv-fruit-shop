@@ -5,11 +5,16 @@ import core.basesyntax.StorageDao;
 import core.interfaces.OperationHandler;
 
 public class BalanceOperation implements OperationHandler {
+    private final StorageDao storage;
+
+    public BalanceOperation(StorageDao storage) {
+        this.storage = storage;
+    }
 
     @Override
-    public void apply(FruitTransaction tx, StorageDao storageDao) {
+    public void apply(FruitTransaction tx) {
         if (tx != null && tx.getQuantity() >= 0) {
-            storageDao.set(tx.getFruit(), tx.getQuantity());
+            storage.set(tx.getFruit(), tx.getQuantity());
         }
     }
 }

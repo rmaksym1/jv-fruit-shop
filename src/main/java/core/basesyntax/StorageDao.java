@@ -5,11 +5,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class StorageDao implements Storage {
-    private static Map<String, Integer> storage = new HashMap<>();
+    private final Map<String, Integer> storage = new HashMap<>();
 
     @Override
-    public int get(String fruit, int quantity) {
-        return storage.getOrDefault(fruit, 0);
+    public int get(String fruit) {
+        return storage.get(fruit);
     }
 
     @Override
@@ -19,12 +19,12 @@ public class StorageDao implements Storage {
 
     @Override
     public void add(String fruit, int quantity) {
-        storage.put(fruit, get(fruit, 0) + quantity);
+        storage.put(fruit, get(fruit) + quantity);
     }
 
     @Override
     public void subtract(String fruit, int quantity) {
-        storage.put(fruit, get(fruit, 0) - quantity);
+        storage.put(fruit, get(fruit) - quantity);
     }
 
     @Override

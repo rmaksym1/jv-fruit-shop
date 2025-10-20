@@ -6,18 +6,20 @@ import java.util.List;
 
 public class ShopServiceImpl implements ShopService {
     private final OperationStrategy operationStrategy;
-    private final StorageDao storage;
 
     public ShopServiceImpl(OperationStrategy operationStrategy) {
         this.operationStrategy = operationStrategy;
-        this.storage = new StorageDao();
     }
 
     @Override
     public void process(List<FruitTransaction> transactions) {
-        for (FruitTransaction transaction : transactions) {
-            operationStrategy.get(transaction.getOperation())
-                    .apply(transaction, storage);
+        if (transactions != null) {
+            for (FruitTransaction transaction : transactions) {
+                if (transaction != null) {
+                    operationStrategy.get(transaction.getOperation())
+                            .apply(transaction);
+                }
+            }
         }
     }
 }

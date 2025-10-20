@@ -11,10 +11,15 @@ public class FileReaderImpl implements FileReader {
 
     @Override
     public List<String> read(String path) {
-        try {
-            return Files.readAllLines(Paths.get(path));
-        } catch (IOException e) {
-            throw new UncheckedIOException(e);
+        if (path != null) {
+            try {
+                return Files.readAllLines(Paths.get(path));
+            } catch (IOException e) {
+                throw new UncheckedIOException(e);
+            }
+        } else {
+            throw new IllegalArgumentException("Path can't be null");
         }
+
     }
 }
