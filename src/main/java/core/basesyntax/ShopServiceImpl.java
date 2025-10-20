@@ -16,10 +16,20 @@ public class ShopServiceImpl implements ShopService {
         if (transactions != null) {
             for (FruitTransaction transaction : transactions) {
                 if (transaction != null) {
-                    operationStrategy.get(transaction.getOperation())
-                            .apply(transaction);
+                    if (transaction.getOperation() != null) {
+                        operationStrategy.get(transaction.getOperation())
+                                .apply(transaction);
+                    } else {
+                        throw new IllegalArgumentException(
+                                "Operation inside transaction cannot be null!"
+                        );
+                    }
+                } else {
+                    throw new IllegalArgumentException("Transaction is null!");
                 }
             }
+        } else {
+            throw new IllegalArgumentException("Transactions can't be null!");
         }
     }
 }

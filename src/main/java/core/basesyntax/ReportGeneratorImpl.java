@@ -1,6 +1,9 @@
 package core.basesyntax;
 
 import core.interfaces.ReportGenerator;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 
 public class ReportGeneratorImpl implements ReportGenerator {
@@ -14,12 +17,14 @@ public class ReportGeneratorImpl implements ReportGenerator {
     public String getReport() {
         StringBuilder sb = new StringBuilder();
         Map<String, Integer> map = storage.findAll();
+        List<String> keys = new ArrayList<>(map.keySet());
+        Collections.sort(keys);
         sb.append("fruit,quantity").append(System.lineSeparator());
-        for (Map.Entry<String, Integer> entry : map.entrySet()) {
-            sb.append(entry
-                    .getKey())
+
+        for (String key : keys) {
+            sb.append(key)
                     .append(',')
-                    .append(entry.getValue())
+                    .append(map.get(key))
                     .append(System.lineSeparator());
         }
         return sb.toString();
