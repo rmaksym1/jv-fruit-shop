@@ -1,8 +1,6 @@
 package core.basesyntax;
 
 import core.interfaces.ReportGenerator;
-import core.interfaces.Storage;
-
 import java.util.Map;
 
 public class ReportGeneratorImpl implements ReportGenerator {
