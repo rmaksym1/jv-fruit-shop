@@ -1,9 +1,9 @@
 package strategy;
 
-import service.impl.FruitTransaction;
 import interfaces.OperationHandler;
 import interfaces.OperationStrategy;
 import java.util.Map;
+import service.impl.FruitTransaction;
 
 public class OperationStrategyImpl implements OperationStrategy {
     private final Map<FruitTransaction.Operation,

@@ -1,9 +1,8 @@
 package operations;
 
-import service.impl.FruitTransaction;
-import service.impl.StorageDao;
 import interfaces.OperationHandler;
 import interfaces.Storage;
+import service.impl.FruitTransaction;
 
 public class PurchaseOperation implements OperationHandler {
     private final Storage storage;

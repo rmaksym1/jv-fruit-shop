@@ -1,8 +1,8 @@
 package operations;
 
-import service.impl.FruitTransaction;
 import interfaces.OperationHandler;
 import interfaces.Storage;
+import service.impl.FruitTransaction;
 
 public class ReturnOperation implements OperationHandler {
     private final Storage storage;

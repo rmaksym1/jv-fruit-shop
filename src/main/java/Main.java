@@ -1,29 +1,30 @@
+// interface imports
+import interfaces.DataConverter;
+import interfaces.FileReader;
+import interfaces.FileWriter;
+import interfaces.OperationHandler;
+import interfaces.OperationStrategy;
+import interfaces.ReportGenerator;
+import interfaces.ShopService;
+import interfaces.Storage;
 // java imports
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-// Impl imports
-import service.impl.FileReaderImpl;
-import service.impl.DataConverterImpl;
-import service.impl.FileWriterImpl;
-import service.impl.ShopServiceImpl;
-import service.impl.ReportGeneratorImpl;
-import service.impl.FruitTransaction;
-import service.impl.StorageDao;
-// interface imports
-import interfaces.FileReader;
-import interfaces.FileWriter;
-import interfaces.ReportGenerator;
-import interfaces.DataConverter;
-import interfaces.OperationHandler;
-import interfaces.Storage;
-import interfaces.OperationStrategy;
-import interfaces.ShopService;
 // operations imports
 import operations.BalanceOperation;
 import operations.PurchaseOperation;
 import operations.ReturnOperation;
 import operations.SupplyOperation;
+// Impl imports
+import service.impl.DataConverterImpl;
+import service.impl.FileReaderImpl;
+import service.impl.FileWriterImpl;
+import service.impl.FruitTransaction;
+import service.impl.ReportGeneratorImpl;
+import service.impl.ShopServiceImpl;
+import service.impl.StorageDao;
+// Strategy import
 import strategy.OperationStrategyImpl;
 
 public class Main {
@@ -34,11 +35,11 @@ public class Main {
         Storage storage = new StorageDao();
         FileReader reader = new FileReaderImpl();
         DataConverter converter = new DataConverterImpl();
-        FileWriter writer = new FileWriterImpl();
+        final FileWriter writer = new FileWriterImpl();
 
-        List<String> inputReport = reader.read(FILE_PATH);
+        final List<String> inputReport = reader.read(FILE_PATH);
 
-        List<FruitTransaction> transactions = converter.convertToTransaction(inputReport);
+        final List<FruitTransaction> transactions = converter.convertToTransaction(inputReport);
 
         Map<FruitTransaction.Operation, OperationHandler> operationHandlers = new HashMap<>();
         operationHandlers.put(FruitTransaction.Operation.BALANCE, new BalanceOperation(storage));

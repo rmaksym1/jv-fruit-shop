@@ -8,8 +8,9 @@ public class StorageDao implements Storage {
     private final Map<String, Integer> storage = new HashMap<>();
 
     @Override
-    public int get(String fruit) { return storage.getOrDefault(fruit, 0); }
-
+    public int get(String fruit) {
+        return storage.getOrDefault(fruit, 0);
+    }
 
     @Override
     public void set(String fruit, int quantity) {
