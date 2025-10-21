@@ -1,14 +1,14 @@
-package core.operations;
+package operations;
 
-import core.basesyntax.FruitTransaction;
-import core.basesyntax.StorageDao;
-import core.interfaces.OperationHandler;
-import core.interfaces.Storage;
+import service.impl.FruitTransaction;
+import service.impl.StorageDao;
+import interfaces.OperationHandler;
+import interfaces.Storage;
 
 public class BalanceOperation implements OperationHandler {
     private final Storage storage;
 
-    public BalanceOperation(StorageDao storage) {
+    public BalanceOperation(Storage storage) {
         this.storage = storage;
     }
 

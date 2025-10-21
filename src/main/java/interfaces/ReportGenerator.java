@@ -1,4 +1,4 @@
-package core.interfaces;
+package interfaces;
 
 public interface ReportGenerator {
     public String getReport();

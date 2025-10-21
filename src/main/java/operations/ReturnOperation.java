@@ -1,14 +1,13 @@
-package core.operations;
+package operations;
 
-import core.basesyntax.FruitTransaction;
-import core.basesyntax.StorageDao;
-import core.interfaces.OperationHandler;
-import core.interfaces.Storage;
+import service.impl.FruitTransaction;
+import interfaces.OperationHandler;
+import interfaces.Storage;
 
-public class SupplyOperation implements OperationHandler {
+public class ReturnOperation implements OperationHandler {
     private final Storage storage;
 
-    public SupplyOperation(StorageDao storage) {
+    public ReturnOperation(Storage storage) {
         this.storage = storage;
     }
 

@@ -1,6 +1,6 @@
-package core.interfaces;
+package interfaces;
 
-import core.basesyntax.FruitTransaction;
+import service.impl.FruitTransaction;
 
 public interface OperationStrategy {
     public OperationHandler get(FruitTransaction.Operation op);

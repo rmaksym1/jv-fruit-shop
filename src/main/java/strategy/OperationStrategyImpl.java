@@ -1,8 +1,8 @@
-package core.strategy;
+package strategy;
 
-import core.basesyntax.FruitTransaction;
-import core.interfaces.OperationHandler;
-import core.interfaces.OperationStrategy;
+import service.impl.FruitTransaction;
+import interfaces.OperationHandler;
+import interfaces.OperationStrategy;
 import java.util.Map;
 
 public class OperationStrategyImpl implements OperationStrategy {

@@ -1,6 +1,6 @@
-package core.basesyntax;
+package service.impl;
 
-import core.interfaces.FileReader;
+import interfaces.FileReader;
 import java.io.IOException;
 import java.io.UncheckedIOException;
 import java.nio.file.Files;
@@ -15,7 +15,7 @@ public class FileReaderImpl implements FileReader {
             try {
                 return Files.readAllLines(Paths.get(path));
             } catch (IOException e) {
-                throw new UncheckedIOException(e);
+                throw new UncheckedIOException("Can't read file" + path, e);
             }
         } else {
             throw new IllegalArgumentException("Path can't be null");

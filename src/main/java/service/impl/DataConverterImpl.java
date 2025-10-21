@@ -1,6 +1,6 @@
-package core.basesyntax;
+package service.impl;
 
-import core.interfaces.DataConverter;
+import interfaces.DataConverter;
 import java.util.Arrays;
 import java.util.List;
 
@@ -11,7 +11,6 @@ public class DataConverterImpl implements DataConverter {
         if (data != null) {
             return data.stream()
                     .skip(1)
-                    .map(String::trim)
                     .filter(s -> !s.isEmpty())
                     .map(this::toTransaction)
                     .toList();
