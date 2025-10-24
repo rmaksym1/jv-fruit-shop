@@ -1,15 +1,11 @@
 package operations;
 
+import static service.impl.StorageDao.storage;
+
 import interfaces.OperationHandler;
-import interfaces.Storage;
 import service.impl.FruitTransaction;
 
 public class BalanceOperation implements OperationHandler {
-    private final Storage storage;
-
-    public BalanceOperation(Storage storage) {
-        this.storage = storage;
-    }
 
     @Override
     public void apply(FruitTransaction tx) {
@@ -19,6 +15,6 @@ public class BalanceOperation implements OperationHandler {
         if (tx.getQuantity() < 0) {
             throw new IllegalArgumentException("Quantity cannot be negative: " + tx.getQuantity());
         }
-        storage.set(tx.getFruit(), tx.getQuantity());
+        storage.put(tx.getFruit(), tx.getQuantity());
     }
 }

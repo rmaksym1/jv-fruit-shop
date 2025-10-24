@@ -1,7 +1,8 @@
 package service.impl;
 
+import static service.impl.StorageDao.storage;
+
 import interfaces.ReportGenerator;
-import interfaces.Storage;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -10,16 +11,11 @@ import java.util.Map;
 public class ReportGeneratorImpl implements ReportGenerator {
     private static final String HEADER = "fruit,quantity";
     private static final String SEPARATOR = ",";
-    private final Storage storage;
-
-    public ReportGeneratorImpl(Storage storage) {
-        this.storage = storage;
-    }
 
     @Override
     public String getReport() {
         StringBuilder sb = new StringBuilder();
-        Map<String, Integer> map = storage.findAll();
+        Map<String, Integer> map = storage;
         List<String> keys = new ArrayList<>(map.keySet());
         Collections.sort(keys);
         sb.append(HEADER).append(System.lineSeparator());
